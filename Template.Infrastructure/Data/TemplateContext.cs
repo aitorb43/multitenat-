@@ -47,6 +47,7 @@ namespace Template.Infrastructure.Data
             modelBuilder.Entity<Rol_Permiso>().HasKey(x => new { x.RolId, x.PermisoId });
 
 
+
             // modelBuilder.Entity<Industry>()
             //     .HasMany(c => c.Companies)
             //     .WithOne(c => c.Industry)

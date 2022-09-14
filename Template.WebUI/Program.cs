@@ -1,3 +1,5 @@
+using Template.Infrastructure.Services;
+
 DotNetEnv.Env.Load();
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,6 +27,16 @@ app.UseStaticFiles();
 
 app.UseRouting();
 app.UseAuthorization();
+
+
+// insercion de super admin si no hay usuarios registrados
+ new CreacionSuperAdmin(builder.Configuration["Password"], builder.Configuration["Email"]);
+
+Boolean autenticado = false;
+if (!autenticado) 
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=User}/{action=Login}");
 
 app.MapControllerRoute(
     name: "default",

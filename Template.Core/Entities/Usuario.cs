@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Template.Core.Interfaces;
 
 namespace Template.Core.Entities
 {  
-        public class Usuario
+        public class Usuario : IUsuario
         {          
         [Required]
         public int Id { get; set; }
         [Required]
         [StringLength(200)]
-        public String Foto { get; set; }
+        public String Foto { get; set; } 
         [Required]
         [StringLength(50)]
         public String Nombre { get; set; }

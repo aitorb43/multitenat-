@@ -51,4 +51,5 @@ public static class DbContextExtension
       .Database
       .Migrate();
   }
+
 }

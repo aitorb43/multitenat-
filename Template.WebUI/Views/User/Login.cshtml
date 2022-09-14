@@ -1,0 +1,12 @@
+﻿@model Template.Core.Entities.Login
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1>Login</h1>
+
+@using (Html.BeginForm("Login","User")){
+    @Html.EditorForModel();
+    <input type="submit" value="Enviar"/>
+
+}
