@@ -10,8 +10,9 @@ namespace Template.Core.Entities
     {
         [Required]
         public String Email { get; set; }
-        [PasswordPropertyText]
+      
         [Required]
+        [DataType(DataType.Password)]
         public String Password { get; set; }        
     }
 }

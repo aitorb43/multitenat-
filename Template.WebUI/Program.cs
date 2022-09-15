@@ -30,7 +30,7 @@ app.UseAuthorization();
 
 
 // insercion de super admin si no hay usuarios registrados
- new CreacionSuperAdmin(builder.Configuration["Password"], builder.Configuration["Email"]);
+ new CreacionSuperAdmin(builder.Configuration["Email"], builder.Configuration["Password"]);
 
 Boolean autenticado = false;
 if (!autenticado) 

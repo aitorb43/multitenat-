@@ -1,29 +1,40 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using System.Runtime.CompilerServices;
+using Template.Core.Entities;
 
 namespace Template.WebUI.Controllers
 {
     public class UserController : Controller
     {
-        // GET: UserController
+        
+        // GET: UserController   
         public ActionResult Login()
-        {
-            
+        {          
                 return View();
         }
         [HttpPost]
         public ActionResult Login(Login login)
         {
-           /*
-            using (var db = new TemplateContext())
+            if (!ModelState.IsValid)
             {
-                var resut = db.Usuario.Select((x, y) => x.Email = login.Email);
-
-
+                //  return BadRequest(ErrorHelper.GetModelStateErrors(ModelState));
             }
-           */
 
+            TemplateContext templateContext = new TemplateContext();
+            Usuario Usuario = templateContext.Usuario.Where(x => x.Email == login.Email).FirstOrDefault();
+
+
+
+
+            if (Usuario == null)
+            {
+             //   return NotFound(ErrorHelper.Response(404, "Usuario no encontrado."));
+            }
+            /*
+            var aitor = Usuario.Password == login.Password ;
+            */
             return View();
         }
 
